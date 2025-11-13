@@ -120,14 +120,23 @@ td.sponsor img{width: 100%}
   height: 1000px; /* 自行替换成想要的固定高度 */
 }
 /*dataset image*/
-.img-block {
-    text-align: center;
-    margin-bottom: 20px;
+.img-grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* 每组一行 */
+    row-gap: 25px;               /* 组与组之间间距 */
+    justify-items: center;       /* 居中 */
 }
 
-.img-block img {
-    width: 300px;
-    margin: 10px 0;
+.pair {
+    text-align: center;
+}
+
+.pair img {
+    width: 260px;   /* 统一图像大小 */
+    height: 260px;  /* 保证一致；如果怕拉伸可删 */
+    object-fit: cover; /* 保持比例不变 */
+    margin: 10px;
+    border-radius: 6px;
 }
 
 footer{font-size:0.875em; margin-top:12em; text-align:center;}
