@@ -50,9 +50,9 @@
     <p>
             The primary purpose of this Challenge is to address critical bottlenecks in prenatal Congenital Heart Disease (CHD) screening via fetal echocardiography (FE). 
         These bottlenecks include heavy reliance on highly specialized clinicians, inefficient manual annotation, diagnostic variability, data scarcity, 
-        and domain shift—all of which hinder AI-driven automation. The Challenge focuses on two core tasks: fetal cardiac ultrasound view segmentation and biometric measurement. 
+        and domain shift—all of which hinder AI-driven automation. The Challenge focuses on two core tasks: fetal cardiac ultrasound view segmentation and diagnosis. 
         Its goal is to drive the development of robust, clinically translatable AI algorithms. To achieve this, it prioritizes evaluating three key algorithm capabilities: 
-        segmentation/measurement accuracy, few-shot learning adaptability, and cross-clinical-setting generalization.
+        segmentation/classification accuracy, few-shot learning adaptability, and cross-clinical-setting generalization.
     </p>
 
     <h2>Tasks</h2>
@@ -63,13 +63,12 @@
     <p>
         <b>Track 1:</b> Fetal Heart Segmentation:</br>
         <b>Dice Similarity Coefficient (DSC)</b>: Is used to measure the region error.</br>
-        <b>95th percentile Hausdorff Distance (HD95)</b>: Is used to measure the boundary error.</br>
+        <b>Normalized Surface Dice (NSD)</b>: Used to measure the difference between the segmentation result and the ground truth segmentation.</br>
         <b>Running time</b>: Is used to measure the inference speed.</br>
     </p>
     <p>
-        <b>Track 2:</b> Fetal Heart Biometric Measurement:</br>
-        <b>Mean Absolute Error (MAE)</b>: Is used to measure the average measurement error.</br>
-        <b>Intraclass Correlation Coefficient (ICC)</b>: Is used to measure measurement reliability and agreement.</br>
+        <b>Track 2:</b> Fetal Heart disease classificiation:</br>
+        <b>The mean F1-score:</b>: the mean F1-score across all classes.</br>
         <b>Running time</b>: Is used to measure the inference speed.</br>
     </p>
     <h2>Awards</h2>
