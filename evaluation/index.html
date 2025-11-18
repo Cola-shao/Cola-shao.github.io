@@ -63,7 +63,7 @@
         S_{total} = 0.4 * S_{cls} + 0.4 * S_{seg} + 0.2 * S_{time}
         $$
     </p>
-    Where \( S_{cls} \) represents classification score,  \( S_{seg} \) represents segmentation score, and  \( S_{time} \) represents processing time score. Figure 1 illustrates the overall score framework of our challenge.</br>
+        Where \( S_{cls} \) represents classification score,  \( S_{seg} \) represents segmentation score, and  \( S_{time} \) represents processing time score. Figure 1 illustrates the overall score framework of our challenge.</br>
     </p>
     <h3>1. Classification Score:</h3>
     <p>
@@ -71,6 +71,23 @@
     $$
     S_{cls} = \frac{1}{N} \sum_{i=1}^{N} F1_i
     $$
+        Where N denotes the total number of classes.</br>
+    <h3>2. Segmentation Score: </h3>
+        As shown in Figure 1, in the semi-supervised segmentation task, segmentation score is calculated based on the 
+    segmentation performance of <strong>13 anatomical structures across four standard cardiac planes</strong>, with the final segmentation score 
+    obtained by averaging the results across all structures and planes.</br>
+        For each cardiac plane, the score is calculated based on two evaluation metrics — Dice Similarity Coefficient (DSC) and Normalized Surface 
+    Dice (NSD) — which are equally weighted (50%). Considering that all anatomical structures are of comparable clinical importance, each structure 
+    contributes equally to the overall segmentation performance. The segmentation score is calculated as follows:</br>
+    <p>
+        $$
+        S_{seg} = \frac{1}{M} \sum_{s=1}^{M} S(_s)
+        $$
+    </p>
+        where
+        $$
+        S(_s) = (DSC(_s) + NSD(_s))/2
+        $$
     </p>
      <!-- 评价指标文档-
     <iframe class="evaluation-pdf" src="assets/Ranking and Scoring Criteria of the FETUS Challenge.pdf" height="100%" width="100%"></iframe>->
