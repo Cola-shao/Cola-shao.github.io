@@ -58,8 +58,19 @@
     disease through both classification and segmentation, we deemed classification and segmentation to be more critical than processing time, 
     higher weights are assigned to these two aspects compared to processing time. This comprehensive evaluation aligns with the challenge’s objective to assess both 
     segmentation, classification, and computational performance, ensuring a multi-dimensional assessment of participants’ solutions. The overall score is calculated as follows:</br>
-    <p>\( S_{total} = 0.4 * S_{cls} + 0.4 * S_{seg} + 0.2 * S_{time} \)</p>
-
+    <p>
+        $$
+        S_{total} = 0.4 * S_{cls} + 0.4 * S_{seg} + 0.2 * S_{time}
+        $$
+    </p>
+    Where \( S_{cls} \) represents classification score,  \( S_{seg} \) represents segmentation score, and  \( S_{time} \) represents processing time score. Figure 1 illustrates the overall score framework of our challenge.</br>
+    </p>
+    <h3>1. Classification Score:</h3>
+    <p>
+         Class imbalance is an inherent issue in this task. To comprehensively evaluate classification performance, we adopt the mean F1-score across all classes as the final classification score. The calculation formula is as follows:</br>
+    $$
+    S_{cls} = \frac{1}{N} \sum_{i=1}^{N} F1_i
+    $$
     </p>
      <!-- 评价指标文档-
     <iframe class="evaluation-pdf" src="assets/Ranking and Scoring Criteria of the FETUS Challenge.pdf" height="100%" width="100%"></iframe>->
