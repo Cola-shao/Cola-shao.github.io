@@ -58,19 +58,21 @@
     disease through both classification and segmentation, we deemed classification and segmentation to be more critical than processing time, 
     higher weights are assigned to these two aspects compared to processing time. This comprehensive evaluation aligns with the challenge’s objective to assess both 
     segmentation, classification, and computational performance, ensuring a multi-dimensional assessment of participants’ solutions. The overall score is calculated as follows:</br>
-    <p>
+    </p>
         $$
         S_{total} = 0.4 * S_{cls} + 0.4 * S_{seg} + 0.2 * S_{time}
         $$
-    </p>
+    <p>
         Where \( S_{cls} \) represents classification score,  \( S_{seg} \) represents segmentation score, and  \( S_{time} \) represents processing time score. Figure 1 illustrates the overall score framework of our challenge.</br>
     </p>
     <h3>1. Classification Score:</h3>
     <p>
          Class imbalance is an inherent issue in this task. To comprehensively evaluate classification performance, we adopt the mean F1-score across all classes as the final classification score. The calculation formula is as follows:</br>
+    </p>
     $$
     S_{cls} = \frac{1}{N} \sum_{i=1}^{N} F1_i
     $$
+    <p>
         Where N denotes the total number of classes.</br>
     </p>
     <h3>2. Segmentation Score: </h3>
@@ -81,15 +83,17 @@
         For each cardiac plane, the score is calculated based on two evaluation metrics — Dice Similarity Coefficient (DSC) and Normalized Surface 
     Dice (NSD) — which are equally weighted (50%). Considering that all anatomical structures are of comparable clinical importance, each structure 
     contributes equally to the overall segmentation performance. The segmentation score is calculated as follows:</br>
-    <p>
+    </p>
         $$
         S_{seg} = \frac{1}{M} \sum_{s=1}^{M} S(_s)
         $$
-    </p>
+    <p>
         where
+    </p>
         $$
         S_{(s)} = \frac{DSC_{(s)} + NSD_{(s)}}{2}
         $$
+    <p>
         Here, s denotes the anatomical structure (e.g., atria, ventricles, great vessels, etc.), and M represents the total number of anatomical structures. 
     The final segmentation score is obtained by averaging the results across all M structures within the four standard cardiac views (four-chamber view, left 
     ventricular outflow tract view, right ventricular outflow tract view, and three-vessel–trachea view).</br>
