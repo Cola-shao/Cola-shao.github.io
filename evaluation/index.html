@@ -72,7 +72,9 @@
     S_{cls} = \frac{1}{N} \sum_{i=1}^{N} F1_i
     $$
         Where N denotes the total number of classes.</br>
+    </p>
     <h3>2. Segmentation Score: </h3>
+    <p>
         As shown in Figure 1, in the semi-supervised segmentation task, segmentation score is calculated based on the 
     segmentation performance of <strong>13 anatomical structures across four standard cardiac planes</strong>, with the final segmentation score 
     obtained by averaging the results across all structures and planes.</br>
@@ -86,8 +88,27 @@
     </p>
         where
         $$
-        S(_s) = (DSC(_s) + NSD(_s))/2
+        S_{(s)} = \frac{DSC_{(s)} + NSD_{(s)}}{2}
         $$
+        Here, s denotes the anatomical structure (e.g., atria, ventricles, great vessels, etc.), and M represents the total number of anatomical structures. 
+    The final segmentation score is obtained by averaging the results across all M structures within the four standard cardiac views (four-chamber view, left 
+    ventricular outflow tract view, right ventricular outflow tract view, and three-vessel–trachea view).</br>
+    </p>
+    <h3>3. Processing Time Score:</h3>
+    <p>
+        The total time was defined as the duration from the first to the last test case for each participant. To control for extreme values, the time usage was clipped relative to the baseline time as follows:</br>
+            &#8226; If a participant’s time was ≤ 2/3 of the baseline time, their time usage was set to - (2/3 × baseline time). </br>
+            &#8226; If a participant’s time was ≥ 2 of the baseline time, their time usage was set to -(2 × baseline time). </br>
+            &#8226; Otherwise, it was set to - (total time).</br>
+        After min-max normalization and score transformation was applied to yield a [0, 100] score. </br>
+        The processing time score is calculated as follows:</br>
+        $$
+        S_{time} = \frac{(-t_{user}) - (-T_{max})}{(-T_{min}) - (-T_{max})} \times 100
+        $$
+        Where:</br>
+        &#8226;  \( T_{uesr} \)  is the participant’s (clipped) total time usage;</br>
+        &#8226;  \( T_{min} \)  = 2/3 × baseline time is the fastest acceptable case (upper bound);</br>
+        &#8226;  \( T_{max} \)  = 2×baseline time is the slowest acceptable case (lower bound).</br>
     </p>
      <!-- 评价指标文档-
     <iframe class="evaluation-pdf" src="assets/Ranking and Scoring Criteria of the FETUS Challenge.pdf" height="100%" width="100%"></iframe>->
